@@ -322,7 +322,7 @@
 </head>
 <body>
   <header>
-    <div class="logo">LunatechCRM</div>
+    <div class="logo">GraphicCRM</div>
     <nav>
       <button id="menu-dashboard">Dashboard</button>
     </nav>
@@ -608,9 +608,11 @@
       <div id="order-details">
         <!-- Order details will be displayed here -->
       </div>
+      <button id="export-receipt-btn">Export Receipt</button>
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
   <script>
     // Storage keys
     const CUSTOMERS_KEY = 'graphiccrm_customers';
@@ -1079,6 +1081,27 @@
       document.getElementById('order-modal').style.display = 'block';
     }
 
+    // Export receipt
+    function exportReceipt(orderId) {
+      const order = getOrderById(orderId);
+      const customer = getCustomerById(order.customerId);
+
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      doc.setFontSize(16);
+      doc.text('Receipt', 14, 22);
+      doc.setFontSize(12);
+      doc.text(`Order ID: ${order.id.substring(0, 8)}`, 14, 30);
+      doc.text(`Customer: ${customer ? customer.name : 'N/A'}`, 14, 38);
+      doc.text(`Service: ${getServiceName(order.serviceType)}`, 14, 46);
+      doc.text(`Amount: ${formatCurrency(order.amount)}`, 14, 54);
+      doc.text(`Status: ${order.status}`, 14, 62);
+      doc.text(`Date: ${formatDate(order.dateCreated)}`, 14, 70);
+
+      doc.save('receipt.pdf');
+    }
+
     // Transaction functions
     function addTransaction(transaction) {
       const transactions = JSON.parse(localStorage.getItem(TRANSACTIONS_KEY)) || [];
@@ -1280,6 +1303,11 @@
           renderTransactions(type);
         }
       });
+    });
+
+    document.getElementById('export-receipt-btn').addEventListener('click', () => {
+      const orderId = document.querySelector('.view-order.active').getAttribute('data-id');
+      exportReceipt(orderId);
     });
 
     // Populate customer select in order form
