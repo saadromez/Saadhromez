@@ -13,7 +13,7 @@
             --background: #0f172a;
             --text-primary: #f8fafc;
             --text-secondary: #cbd5e1;
-            --accent: #950098;
+            --accent: #00ffff;
         }
 
         * {
@@ -323,6 +323,64 @@
 
         .service-desc {
             color: var(--text-secondary);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 6rem 2rem;
+            text-align: center;
+            background-color: var(--background);
+            color: var(--text-primary);
+            animation: fade-in 2s ease-in-out;
+        }
+
+        .testimonials-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #0059ff;
+            animation: fade-in 2s ease-in-out;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .testimonial-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.2;
+        }
+
+        .testimonial-author {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
         }
 
         /* Portfolio Section */
@@ -707,11 +765,15 @@
                 font-size: 2rem;
             }
 
+            .testimonials-title {
+                font-size: 2rem;
+            }
+
             .portfolio-title {
                 font-size: 2rem;
             }
 
-            .services-grid, .portfolio-grid {
+            .services-grid, .portfolio-grid, .testimonials-grid {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
 
@@ -737,6 +799,7 @@
             <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#portfolio">Portfolio</a>
+            <a href="#testimonials">Testimonials</a>
         </div>
     </nav>
 
@@ -813,6 +876,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
@@ -938,7 +1002,24 @@
             <!-- Add more portfolio items here -->
         </div>
     </section>
-
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="testimonials-title">What Clients Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-item">
+                <p class="testimonial-text">"Oalage designe godak creative  price ekata wada godak watinawa.service ekath godaka hodai .oya hodata friendly ,flexible widiyata customer handle karanna dannawa. Good luck to you all works in 2025❤️❤️."</p>
+                <p class="testimonial-author">- Ayodya Karunarathna</p>
+            </div>
+            <div class="testimonial-item">
+                <p class="testimonial-text">"I can be happy about your service putha. Actually it is worth the price. Really admire your positive attitudes."</p>
+                <p class="testimonial-author">- Nishantha Yapa</p>
+            </div>
+            <div class="testimonial-item">
+                <p class="testimonial-text">"Service eka very good. Price ekat worth. Quality ekata wede karala denawa. Wedi wediyen orders lebenna wish karanawa. 👍"</p>
+                <p class="testimonial-author">-D Chathurika Samarasekara</p>
+            </div>
+        </div>
+    </section>
     <!-- Modal Overlay -->
     <div class="modal">
         <span class="modal-close">&times;</span>
@@ -953,6 +1034,7 @@
             <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#portfolio">Portfolio</a>
+            <a href="#testimonials">Testimonials</a>
         </div>
         <p class="copyright">© 2023 Saadh Thilakarathna. All Rights Reserved.</p>
     </footer>
