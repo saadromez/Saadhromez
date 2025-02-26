@@ -83,6 +83,13 @@
             transform-origin: bottom left;
         }
 
+        .menu-icon {
+            display: none;
+            font-size: 2rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -656,13 +663,76 @@
                 opacity: 1;
             }
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: rgba(15, 23, 42, 0.9);
+                flex-direction: column;
+                align-items: center;
+                display: none;
+            }
+
+            .nav-links a {
+                padding: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .about-title {
+                font-size: 2rem;
+            }
+
+            .services-title {
+                font-size: 2rem;
+            }
+
+            .portfolio-title {
+                font-size: 2rem;
+            }
+
+            .services-grid, .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .footer-logo {
+                font-size: 1.2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="logo">Saadh Thilakarathna</div>
-        <div class="nav-links">
+        <div class="menu-icon" id="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links" id="nav-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#services">Services</a>
@@ -875,8 +945,6 @@
         <img src="" alt="Full Image">
     </div>
 
-    
-
     <!-- Footer -->
     <footer>
         <div class="footer-logo">Saadh Thilakarathna</div>
@@ -918,6 +986,14 @@
             if (e.target === modal) {
                 modal.classList.remove('active');
             }
+        });
+
+        // Navigation Toggle
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.getElementById('nav-links');
+
+        menuIcon.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
         });
 
         // Floating Contact Form Logic
