@@ -274,8 +274,8 @@
             transform: scale(1.2);
         }
 
-        /* Services Section */
-        .services {
+        /* Services Section */  
+            .services {
             padding: 6rem 2rem;
             text-align: center;
             background-color: var(--background);
@@ -283,7 +283,7 @@
             animation: fade-in 2s ease-in-out;
         }
 
-        .services-title {
+            .services-title {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 2rem;
@@ -291,20 +291,20 @@
             animation: fade-in 2s ease-in-out;
         }
 
-        .services-grid {
+            .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
 
-        .service-item {
+            .service-item {
             background: rgba(255, 255, 255, 0.1);
             padding: 2rem;
             border-radius: 15px;
             transition: transform 0.3s ease, background 0.3s ease;
         }
 
-        .service-item:hover {
+            .service-item:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.2);
         }
@@ -313,7 +313,7 @@
             font-size: 3rem;
             color: #0059ff;
             margin-bottom: 1rem;
-        }
+        }   
 
         .service-title {
             font-size: 1.5rem;
@@ -321,11 +321,12 @@
             margin-bottom: 1rem;
         }
 
-        .service-desc {
+            .service-desc {
             color: var(--text-secondary);
         }
 
-        /* Testimonials Section */
+
+        //* Testimonials Section */
         .testimonials {
             padding: 6rem 2rem;
             text-align: center;
@@ -334,55 +335,71 @@
             animation: fade-in 2s ease-in-out;
         }
 
-        .testimonials-title {
+            .testimonials-title {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 2rem;
             color: #0059ff;
             animation: fade-in 2s ease-in-out;
-        }
+        }   
 
-        .testimonials-grid {
+            .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+            overflow-x: auto;
+            scrollbar-color: var(--primary-color) var(--background); /* Custom scrollbar color */
+            scrollbar-width: thin;
+        }
+
+            .testimonials-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .testimonials-grid::-webkit-scrollbar-thumb {
+        background-color: var(--primary-color);
+        border-radius: 10px;
+        }
+
+         .testimonials-grid::-webkit-scrollbar-track {
+            background-color: var(--background);
         }
 
         .testimonial-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            transition: transform 0.3s ease, background 0.3s ease;
+        background: rgba(255, 255, 255, 0.1);
+           padding: 2rem;
+           border-radius: 15px;
+           transition: transform 0.3s ease, background 0.3s ease;
+           min-width: 250px; /* Ensure items don't shrink too much */
         }
 
         .testimonial-item:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.2);
+        }  
+
+          .testimonial-text {
+           font-size: 1.2rem;
+           color: var(--text-secondary);
+           margin-bottom: 1rem;
+           position: relative;
         }
 
-        .testimonial-text {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            position: relative;
+          .testimonial-text::before {
+           content: '"';
+           position: absolute;
+           top: -10px;
+           left: -10px;
+           font-size: 4rem;
+           color: var(--accent);
+           opacity: 0.2;
         }
 
-        .testimonial-text::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            font-size: 4rem;
-            color: var(--accent);
-            opacity: 0.2;
+           .testimonial-author {
+           font-size: 1rem;
+           font-weight: 600;
+           color: var(--text-primary);
         }
-
-        .testimonial-author {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
         /* Portfolio Section */
         .portfolio {
             padding: 6rem 2rem;
@@ -768,13 +785,23 @@
             .testimonials-title {
                 font-size: 2rem;
             }
+            @media (max-width: 768px) {
+            .testimonials-grid {
+              grid-template-columns: auto;
+              display: flex;
+              flex-direction: row;
+             }
+
+            .testimonial-item {
+                flex: 0 0 auto;
+            }
 
             .portfolio-title {
                 font-size: 2rem;
             }
 
-            .services-grid, .portfolio-grid, .testimonials-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            .services-grid {
+                  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
 
             .footer-logo {
@@ -1008,7 +1035,7 @@
         <div class="testimonials-grid">
             <div class="testimonial-item">
                 <p class="testimonial-text">"Oalage designe godak creative  price ekata wada godak watinawa.service ekath godaka hodai .oya hodata friendly ,flexible widiyata customer handle karanna dannawa. Good luck to you all works in 2025❤️❤️."</p>
-                <p class="testimonial-author">- Ayodya Karunarathna</p>
+                <p class="testimonial-author">- Mrs.Ayodya Karunarathna</p>
             </div>
             <div class="testimonial-item">
                 <p class="testimonial-text">"I can be happy about your service putha. Actually it is worth the price. Really admire your positive attitudes."</p>
